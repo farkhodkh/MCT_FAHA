@@ -10,14 +10,8 @@ import com.example.mct_faha.adapters.RepositoryRecyclerViewAdapter
 import com.example.mct_faha.databinding.ActivityMainBinding
 import com.example.mct_faha.modules.main.MainViewModel
 import com.example.mct_faha.repositories.Repository
-import android.os.StrictMode
-
-
 
 class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemClickListener {
-    companion object {
-        lateinit var instance: MainActivity
-    }
 
     override fun onItemClick(position: Int) {
 
@@ -29,18 +23,19 @@ class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemCl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        instance = this
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         binding.viewModel = viewModel
+
         binding.executePendingBindings()
 
         binding.repositoryRv.layoutManager = LinearLayoutManager(this)
         binding.repositoryRv.adapter = repositoryRecyclerViewAdapter
 
+
         viewModel.repositories.observe(this,
-            Observer<ArrayList<Repository>> {
-                it?.let { repositoryRecyclerViewAdapter.replaceData(it) }
-            })
+            Observer<ArrayList<Repository>> { it?.let { repositoryRecyclerViewAdapter.replaceData(it) } })
     }
 }

@@ -21,12 +21,12 @@ class RepositoryRecyclerViewAdapter(
         return ViewHolder(binding)
     }
 
-    //    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position], listener)
+    //        override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position], listener)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val url: String = items[position].trackViewUrl!!
 
-        val imageView: ImageView = holder.itemView.trackView
+        val imageView: ImageView = holder.itemView.track_view
 
 //        val circularProgressDrawable = CircularProgressDrawable(MainActivity.instance)
 //        circularProgressDrawable.strokeWidth = 5f
@@ -40,27 +40,21 @@ class RepositoryRecyclerViewAdapter(
 //            .priority(Priority.HIGH)
 //            .dontAnimate()
 //            .dontTransform()
-        try {
-
-            //1-Варинат
+//        1-Варинат
 //            Glide.with(MainActivity.instance)
 //                .load(url)
 //                .apply(requestOption)
 //                .into(imageView!!)
-            //2-Вариант
-            //imageView.setImageDrawable(MainActivity.instance.getDrawable(R.drawable.ic_no_photo))
-            //3-Вариант
-            Picasso.get()
-                .load(url)
-                .resize(500, 500)
-                .centerCrop()
-                .into(imageView)
-            //ОШИБКА: D/skia: --- Failed to create image decoder with message 'unimplemented'
-            //ПРИЧИНА: Starting with Android 9.0 (API level 28), cleartext support is disabled by default.
-
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-        }
+//        2-Вариант
+//        imageView.setImageDrawable(MainActivity.instance.getDrawable(R.drawable.ic_no_photo))
+//        3-Вариант
+        Picasso.get()
+            .load(url)
+            .resize(500, 500)
+            .centerCrop()
+            .into(imageView)
+//        ОШИБКА: D/skia: --- Failed to create image decoder with message 'unimplemented'
+//        ПРИЧИНА: Starting with Android 9.0 (API level 28), cleartext support is disabled by default.
 
         return holder.bind(items[position], listener)
     }
