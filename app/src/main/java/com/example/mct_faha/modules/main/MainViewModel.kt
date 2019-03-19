@@ -9,8 +9,6 @@ import com.example.mct_faha.repositories.Repository
 
 
 class MainViewModel : ViewModel() {
-    var searchTextWatcher = ObservableField(String)
-
     var repoModel: ItunesRepository =
         ItunesRepository()
 

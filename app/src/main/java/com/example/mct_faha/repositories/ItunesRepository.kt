@@ -39,8 +39,8 @@ class ItunesRepository {
         } finally {
         }
 
-        Handler().postDelayed({ onRepositoryReadyCallback.onDataReady(arrayList) }, 2000)
-//        onRepositoryReadyCallback.onDataReady(arrayList)
+//        Handler().postDelayed({ onRepositoryReadyCallback.onDataReady(arrayList) }, 2000)
+        onRepositoryReadyCallback.onDataReady(arrayList)
     }
 }
 
