@@ -21,10 +21,6 @@ class MainViewModelTest {
         MainActivity::class.java
     )
 
-//    @Rule
-//    @JvmField
-//    var mainModule = MainViewModel()
-
     @Test
     fun onTextEdited() {
 

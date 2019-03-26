@@ -13,9 +13,7 @@ import com.example.mct_faha.repositories.Repository
 
 class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemClickListener {
 
-    override fun onItemClick(position: Int) {
-
-    }
+    override fun onItemClick(position: Int) {}
 
     lateinit var binding: ActivityMainBinding
     private val repositoryRecyclerViewAdapter = RepositoryRecyclerViewAdapter(arrayListOf(), this)
@@ -37,5 +35,10 @@ class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemCl
 
         viewModel.repositories.observe(this,
             Observer<ArrayList<Repository>> { it?.let { repositoryRecyclerViewAdapter.replaceData(it) } })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.unbind()
     }
 }
