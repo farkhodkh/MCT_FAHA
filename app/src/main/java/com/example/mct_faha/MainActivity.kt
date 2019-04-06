@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemCl
     override fun onItemClick(position: Int) {}
 
     lateinit var binding: ActivityMainBinding
+
     private val repositoryRecyclerViewAdapter = RepositoryRecyclerViewAdapter(arrayListOf(), this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
